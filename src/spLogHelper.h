@@ -8,7 +8,7 @@
  * 
  * Version history:
  * v1.0.0   initial version
- * v1.0.1   ...
+ * v1.0.1   splhLevelText array constructor fix
  * 
  * Notes:
  *  The classes logf() function's code is located here in the header file to allow for the templated function style.

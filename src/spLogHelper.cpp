@@ -20,17 +20,10 @@ std::vector<uint32_t> regIDs;
 std::vector<spLogHelper*> regOwners;
 std::vector<splhHandlerCallback> regCallbacks;
 
+
 // for level to text conversion
-std::array splhLevelText
-{
-  "ALL",
-  "DEBUG",
-  "INFO",
-  "WARNING",
-  "ERROR",
-  "CRITICAL",
-  "NONE",
-};
+std::array<const char*, 7> splhLevelText = {"ALL", "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "NONE"};
+
 
 // message buffer
 char* pMsgBuffer = nullptr;
