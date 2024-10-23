@@ -2,7 +2,7 @@
  * @file spLogHelper.cpp
  * @author krokoreit (krokoreit@gmail.com)
  * @brief class and macros for preparing the output of log messages
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2024-10-22
  * @copyright Copyright (c) 2024
  * 

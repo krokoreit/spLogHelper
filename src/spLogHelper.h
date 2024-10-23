@@ -2,12 +2,13 @@
  * @file spLogHelper.h
  * @author krokoreit (krokoreit@gmail.com)
  * @brief a class and macros for preparing the output of log messages
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2024-10-22
  * @copyright Copyright (c) 2024
  * 
  * Version history:
  * v1.0.0   initial version
+ * v1.0.1   ...
  * 
  * Notes:
  *  The classes logf() function's code is located here in the header file to allow for the templated function style.
