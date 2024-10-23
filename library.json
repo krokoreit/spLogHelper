@@ -1,0 +1,19 @@
+{
+  "name": "spLogHelper",
+  "description": "A library for preparing the output of log messages independent of whether and how they will be consumed by the application.",
+  "keywords": "cpp, library, logging, application logs, error, warning, info, messages, krokoreit",
+  "version": "1.0.0",
+  "authors":
+  {
+    "name": "krokoreit",
+    "email": "krokoreit@gmail.com",
+    "maintainer": true
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/krokoreit/spLogHelper.git"
+  },
+  "frameworks": "*",
+  "platforms": "*"
+}
