@@ -1,12 +1,12 @@
 # spLogHelper Library
 
-This library provides the C++ spLogHelper class as well as various macros for preparing the output of log messages. Whether the messages are indeed displayed on the console, written to a file or otherwise processed, actually depends on the application, which can register callbacks and set log levels to receive messages or not.
+This library provides the C++ spLogHelper class as well as various macros for preparing the output of log messages. Whether the messages are indeed displayed on the console, written to a file or otherwise processed, fully depends on the application, which can register callbacks and set log levels to receive messages or not.
 
 The major advantage of spLogHelper is, that code can be written with log messages included and completely independent of how the final application will later use them or what logging system will be implemented. This is particularly useful for writing libraries, which can be used by various applications or other libraries without predefining the policies on how to log.
 
-You have the freedom to use spLogHelper to provide your callback with a fully formatted message (i.e. all you need is a simple println(message)) or to make use of the raw values (i.e. message, time stamp, log level, file name, line number, function name) inorder to process or pass them on to the application's logging system.
+You have the freedom to use spLogHelper to provide your callback with a fully formatted message (i.e. all you need is a simple println(message)) or to make use of the raw values (i.e. message, time stamp, log level, file name, line number, function name) in order to process or pass them on to the application's logging system.
 
-Therefore you can use spLogHelper as a versatile logging system with many options to control the fomatting of the messages, which you can then print to console, write into a file or send via a websocket connection to whereever you may need it.
+Therefore you can use spLogHelper as a versatile logging system with many options to control the formatting of the messages, which you can then print to console, write into a file or send via a websocket connection to wherever you may need it.
 There are various options to format log messages as well as having the same message content passed in various formats by using multiple spLogHelper objects. This allows you to custom format the log messages for each output target.
 
 
@@ -29,7 +29,7 @@ Include library:
 
 ```
 
-There is no need to create an object, as you can use the log macros, e.g. spLOGF_E(), which direct the logging to the spDefaultLogHelper object. The spDefaultLogHelper object is automatically created by the library.
+There is no need to create an object, as you can use log macros, e.g. spLOGF_E(), which direct the logging to the spDefaultLogHelper object. The spDefaultLogHelper object is automatically created by the library.
 Note that using the log macros or calling the logf() function of an spLogHelper object has no effect until at least one callback is registered. 
 
 Similarly to log macros, also all formatting macros will be applied to the spDefaultLogHelper object. Depending on your needs, it may make sense to create additional objects and apply different settings for formats and log levels to them. This enables one log message to be directed with multiple formats and levels to the callbacks registered via these spLogHelper objects.
@@ -58,7 +58,7 @@ Note that you must use the same sequence and types of arguments, but you are fre
 
 After you have registered your callback, it will receive the logging information to be processed, e.g. print them to console or file, pass to syslog or a logging system used for your application. Typically the message argument will be the only one processed, as it comes formatted with the other elements included. However, you can redefine the message format to exclude any or even all of these elements. Therefore you are free to process them separately as needed.
 
-Callback functions can be registerd with the object's function
+Callback functions can be registered with the object's function
 ```cpp
   uint32_t cbID = spDefaultLogHelper.registerHandlerCallback(myHandlerFunc);
 ```
@@ -105,7 +105,7 @@ The first one is for using string formatting like printf()
 ```
 See https://en.cppreference.com/w/cpp/io/c/fprintf for details on the format specifiers available.
 
-The second one is for simple string messages without the need for formating
+The second one is for simple string messages without the need for formatting
 ```cpp
   spLOG_I("this is without args");
   spLOG_E("something broke");
@@ -181,7 +181,7 @@ For information about the time format specifiers, see https://en.cppreference.co
 
 </br>
 
-The library limits log messages by default to a length of 240 characters, which may be overriden by placing a #define 
+The library limits log messages by default to a length of 240 characters, which may be overridden by placing a #define 
 ```cpp
   #define spLOGHELPER_MSGBUFFER_LEN  160
 ```
@@ -208,7 +208,7 @@ before including the library in your code.
 ```
 Registers a callback function, which will be invoked each time logf() or a log macro is used.
 
-The return value is an unique ID for this registration, which can be used to unregister the function. Any functions registered with a specific spLogHelper object stay active during the life time of that object. Therefore, if a spLogHelper object is created and used to register callbacks within one function, then subsequent logging via this registrations is only active within this function.
+The return value is an unique ID for this registration, which can be used to unregister the function. Any functions registered with a specific spLogHelper object stay active during the life time of that object. Therefore, if a spLogHelper object is created and used to register callbacks within one function, then subsequent logging via this registration is only active within such function.
 
 
 <div style="text-align: right"><a href="#functions">&#8679; back up to list of functions</a></div>
@@ -218,7 +218,7 @@ The return value is an unique ID for this registration, which can be used to unr
 ```cpp
   void unregisterHandlerCallback(uint32_t id);
 ```
-Deletes a previously registered callback function from the registry. Note that the ID refers to the registration made (not the callback) and may already be removed. However, no need to check for and confirm the actice status before calling unregisterHandlerCallback().
+Deletes a previously registered callback function from the registry. Note that the ID refers to the registration made (not the callback) and may already be removed. However, no need to check for and confirm the active status before calling unregisterHandlerCallback().
 
 <div style="text-align: right"><a href="#functions">&#8679; back up to list of functions</a></div>
 
@@ -257,7 +257,7 @@ Sets the log message format to the sequence of splhFormat elements specified. In
 ```
  Creates a log message and pass it with the additional information to the registered callback functions. In most cases it will be more convenient to call any of the log macros, as they automatically feed the first four arguments in a call to logf(). Nevertheless, if you call logf() directly, make use of __FILE__, __LINE__, __func__ macros / variable provided by your compiler.
 
- Note that spLogHelper uses C++ printf() specification, so you must provide a format string followed by one or more arguments (see https://en.cppreference.com/w/cpp/io/c/fprintf for details on the format specifiers available). Alternatively, the final variadic arguments can be ommitted and instead a regular string passed to format.
+ Note that spLogHelper uses C++ printf() specification, so you must provide a format string followed by one or more arguments (see https://en.cppreference.com/w/cpp/io/c/fprintf for details on the format specifiers available). Alternatively, the final variadic arguments can be omitted and instead a regular string passed to format.
 
 <div style="text-align: right"><a href="#functions">&#8679; back up to list of functions</a></div>
 
